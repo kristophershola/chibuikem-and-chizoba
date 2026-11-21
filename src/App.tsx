@@ -310,7 +310,7 @@ export default function App() {
                     </p>
                     <p className="mt-1 inline-flex items-center gap-2 text-sm text-ink/75">
                       <Clock size={14} className="text-gold" />
-                      1:00 pm
+                      12:30 pm
                     </p>
                   </div>
                   <div className="aspect-[16/10] w-full overflow-hidden border-t border-gold/20">
