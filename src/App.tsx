@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   MapPin,
   Clock,
@@ -9,9 +9,18 @@ import {
   Menu,
   X,
   Loader2,
+  ArrowUp,
+  Sparkles,
 } from 'lucide-react';
 import { Toaster, toast } from 'sonner';
-import { motion, AnimatePresence, useScroll, useSpring } from 'motion/react';
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useSpring,
+  useTransform,
+  MotionValue,
+} from 'motion/react';
 
 interface BankDetail {
   label: string;
@@ -112,8 +121,188 @@ function FormField({
   );
 }
 
+function ScrollWordReveal({ text, className }: { text: string; className?: string }) {
+  const containerRef = useRef<HTMLParagraphElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start 85%', 'start 45%'],
+  });
+
+  const words = text.split(' ');
+
+  return (
+    <p ref={containerRef} className={className}>
+      {words.map((word, i) => {
+        const start = i / words.length;
+        const end = Math.min(start + 1.5 / words.length, 1);
+        return (
+          <ScrollWordItem key={i} progress={scrollYProgress} range={[start, end]}>
+            {word}
+          </ScrollWordItem>
+        );
+      })}
+    </p>
+  );
+}
+
+function ScrollWordItem({
+  children,
+  progress,
+  range,
+}: {
+  children: React.ReactNode;
+  progress: MotionValue<number>;
+  range: [number, number];
+}) {
+  const opacity = useTransform(progress, range, [0.22, 1]);
+  const y = useTransform(progress, range, [3, 0]);
+
+  return (
+    <span className="inline-block relative mr-[0.28em] last:mr-0">
+      <motion.span style={{ opacity, y }} className="inline-block transition-colors">
+        {children}
+      </motion.span>
+    </span>
+  );
+}
+
+function ParallaxBackgroundMotifs() {
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 2400], [0, 320]);
+  const y2 = useTransform(scrollY, [0, 2400], [0, -220]);
+  const rotate1 = useTransform(scrollY, [0, 2400], [0, 120]);
+  const rotate2 = useTransform(scrollY, [0, 2400], [45, -45]);
+  const opacityGlow = useTransform(scrollY, [0, 800, 2000], [0.15, 0.35, 0.2]);
+
+  return (
+    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+      {/* Top Left Floating Diamond Motif */}
+      <motion.div
+        style={{ y: y1, rotate: rotate1, opacity: opacityGlow }}
+        className="absolute -left-16 top-1/4 h-56 w-56 rounded-full border border-gold/20 bg-gradient-to-tr from-gold/10 to-transparent blur-[1px]"
+      />
+      {/* Mid Right Floating Motif */}
+      <motion.div
+        style={{ y: y2, rotate: rotate2, opacity: opacityGlow }}
+        className="absolute -right-20 top-2/3 h-72 w-72 rounded-3xl border border-gold/15 bg-gradient-to-bl from-gold/8 to-transparent blur-[1px]"
+      />
+    </div>
+  );
+}
+
+function ScrollToTopButton() {
+  const { scrollYProgress } = useScroll();
+  const opacity = useTransform(scrollYProgress, [0, 0.08, 0.15], [0, 0, 1]);
+  const scale = useTransform(scrollYProgress, [0, 0.08, 0.15], [0.8, 0.8, 1]);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <motion.button
+      style={{ opacity, scale }}
+      onClick={scrollToTop}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.92 }}
+      className="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-gold/40 bg-background/90 p-0 text-gold shadow-lg backdrop-blur-md cursor-pointer transition-colors hover:border-gold hover:bg-gold/10"
+      aria-label="Scroll to top"
+    >
+      <svg className="absolute inset-0 -rotate-90" width="48" height="48" viewBox="0 0 48 48">
+        <circle
+          cx="24"
+          cy="24"
+          r="20"
+          className="stroke-gold/20"
+          strokeWidth="2.5"
+          fill="none"
+        />
+        <motion.circle
+          cx="24"
+          cy="24"
+          r="20"
+          className="stroke-gold"
+          strokeWidth="2.5"
+          fill="none"
+          style={{ pathLength: scrollYProgress }}
+        />
+      </svg>
+      <ArrowUp size={18} className="relative z-10" />
+    </motion.button>
+  );
+}
+
+function CelebrationCard() {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ['start end', 'center center'],
+  });
+
+  const rotateX = useTransform(scrollYProgress, [0, 1], [12, 0]);
+  const y = useTransform(scrollYProgress, [0, 1], [60, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.93, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.35, 0.8, 1]);
+
+  return (
+    <div ref={cardRef} style={{ perspective: 1200 }} className="mt-12 mx-auto max-w-xl">
+      <motion.article
+        style={{ rotateX, y, scale, opacity }}
+        whileHover={{ y: -6, transition: { duration: 0.25 } }}
+        className="overflow-hidden rounded-2xl border border-gold/30 bg-card text-left shadow-[0_20px_50px_-25px_rgba(120,90,40,0.35)] transition-shadow hover:shadow-[0_30px_60px_-25px_rgba(120,90,40,0.45)]"
+      >
+        <div className="px-7 py-8 text-center">
+          <p className="font-smallcaps text-xs text-gold">Traditional Marriage</p>
+          <h3 className="mt-3 font-display text-3xl text-ink">Signatious Hotel</h3>
+          <p className="mt-3 inline-flex items-center gap-2 text-sm text-ink/75">
+            <MapPin size={14} className="text-gold" />
+            Ajau Estate, Lagos
+          </p>
+          <p className="mt-1 inline-flex items-center gap-2 text-sm text-ink/75">
+            <Clock size={14} className="text-gold" />
+            12:30 pm
+          </p>
+        </div>
+        <div className="aspect-[16/10] w-full overflow-hidden border-t border-gold/20">
+          <iframe
+            src="https://www.google.com/maps?q=Signatious+Hotel+Ajau+Estate+Lagos&output=embed"
+            title="Map for Signatious Hotel"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="h-full w-full border-0"
+          />
+        </div>
+        <div className="border-t border-gold/20 bg-cream/40 px-7 py-3 text-center">
+          <motion.a
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            href="https://www.google.com/maps/search/?api=1&query=Signatious+Hotel+Ajau+Estate+Lagos"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.25em] text-gold hover:underline cursor-pointer"
+          >
+            Open in Google Maps <ExternalLink size={12} />
+          </motion.a>
+        </div>
+      </motion.article>
+    </div>
+  );
+}
+
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress: heroProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+
+  const heroY = useTransform(heroProgress, [0, 1], [0, 80]);
+  const heroOpacity = useTransform(heroProgress, [0, 0.75], [1, 0.05]);
+  const heroScale = useTransform(heroProgress, [0, 1], [1, 0.94]);
+  const bgAuraY = useTransform(heroProgress, [0, 1], [0, 140]);
+  const bgAuraScale = useTransform(heroProgress, [0, 1], [1, 1.35]);
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -204,8 +393,9 @@ export default function App() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground">
+    <div className="flex min-h-screen flex-col bg-background text-foreground relative">
       <Toaster position="bottom-right" richColors />
+      <ParallaxBackgroundMotifs />
 
       {/* Reading Progress Indicator */}
       <motion.div
@@ -308,12 +498,15 @@ export default function App() {
       {/* Main Content */}
       <main className="flex-1">
         <div>
-          {/* Hero Section */}
-          <section className="relative overflow-hidden bg-cream/40 shadow-[inset_0_-30px_60px_-40px_rgba(120,90,40,0.25)]">
-            {/* Ambient Breathing Gold Aura */}
+          {/* Hero Section with Parallax */}
+          <section
+            ref={heroRef}
+            className="relative overflow-hidden bg-cream/40 shadow-[inset_0_-30px_60px_-40px_rgba(120,90,40,0.25)]"
+          >
+            {/* Ambient Breathing Gold Aura with Parallax */}
             <motion.div
+              style={{ y: bgAuraY, scale: bgAuraScale }}
               animate={{
-                scale: [1, 1.1, 1],
                 opacity: [0.18, 0.32, 0.18],
               }}
               transition={{
@@ -325,6 +518,7 @@ export default function App() {
             />
 
             <motion.div
+              style={{ y: heroY, opacity: heroOpacity, scale: heroScale }}
               initial="hidden"
               animate="visible"
               variants={{
@@ -436,7 +630,7 @@ export default function App() {
             </motion.div>
           </section>
 
-          {/* Note From Us Section */}
+          {/* Note From Us Section with Scroll Word Reveal */}
           <motion.section
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -452,15 +646,16 @@ export default function App() {
               transition={{ duration: 0.8, ease: 'easeOut' }}
               className="gold-rule mx-auto my-6 max-w-[120px] origin-center"
             ></motion.div>
-            <p className="font-display text-xl italic leading-relaxed text-ink/85 md:text-2xl">
-              “Your love and prayers — in person or in spirit — is the greatest gift we could ask for. For those who have asked how to bless our home, please use the avenue provided below. Whatever you choose, do know that your love is already more than enough.”
-            </p>
+            <ScrollWordReveal
+              text="“Your love and prayers — in person or in spirit — is the greatest gift we could ask for. For those who have asked how to bless our home, please use the avenue provided below. Whatever you choose, do know that your love is already more than enough.”"
+              className="font-display text-xl italic leading-relaxed text-ink/85 md:text-2xl"
+            />
             <p className="mt-6 font-script text-3xl text-gold drop-shadow-[0_2px_6px_rgba(180,140,60,0.3)]">
               Chibuikem &amp; Chizoba
             </p>
           </motion.section>
 
-          {/* When & Where Section */}
+          {/* When & Where Section with 3D Perspective Scroll Card */}
           <section id="details" className="relative bg-cream/40 py-24">
             <div className="relative mx-auto max-w-6xl px-6 text-center">
               <motion.div
@@ -474,49 +669,7 @@ export default function App() {
                 <div className="gold-rule mx-auto my-6 max-w-[120px]"></div>
               </motion.div>
 
-              <div className="mt-12 mx-auto max-w-xl">
-                <motion.article
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-50px' }}
-                  whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                  className="overflow-hidden rounded-2xl border border-gold/30 bg-card text-left shadow-[0_20px_50px_-25px_rgba(120,90,40,0.35)] transition-shadow hover:shadow-[0_30px_60px_-25px_rgba(120,90,40,0.45)]"
-                >
-                  <div className="px-7 py-8 text-center">
-                    <p className="font-smallcaps text-xs text-gold">Traditional Marriage</p>
-                    <h3 className="mt-3 font-display text-3xl text-ink">Signatious Hotel</h3>
-                    <p className="mt-3 inline-flex items-center gap-2 text-sm text-ink/75">
-                      <MapPin size={14} className="text-gold" />
-                      Ajau Estate, Lagos
-                    </p>
-                    <p className="mt-1 inline-flex items-center gap-2 text-sm text-ink/75">
-                      <Clock size={14} className="text-gold" />
-                      12:30 pm
-                    </p>
-                  </div>
-                  <div className="aspect-[16/10] w-full overflow-hidden border-t border-gold/20">
-                    <iframe
-                      src="https://www.google.com/maps?q=Signatious+Hotel+Ajau+Estate+Lagos&output=embed"
-                      title="Map for Signatious Hotel"
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      className="h-full w-full border-0"
-                    />
-                  </div>
-                  <div className="border-t border-gold/20 bg-cream/40 px-7 py-3 text-center">
-                    <motion.a
-                      whileHover={{ scale: 1.03 }}
-                      whileTap={{ scale: 0.97 }}
-                      href="https://www.google.com/maps/search/?api=1&query=Signatious+Hotel+Ajau+Estate+Lagos"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.25em] text-gold hover:underline cursor-pointer"
-                    >
-                      Open in Google Maps <ExternalLink size={12} />
-                    </motion.a>
-                  </div>
-                </motion.article>
-              </div>
+              <CelebrationCard />
             </div>
           </section>
 
@@ -532,9 +685,10 @@ export default function App() {
                 <p className="font-smallcaps text-xs text-gold">Bless Our Home</p>
                 <h2 className="mt-3 font-display text-4xl text-ink md:text-5xl">Send a Gift</h2>
                 <div className="gold-rule mx-auto my-6 max-w-[120px]"></div>
-                <p className="font-display text-xl italic leading-relaxed text-ink/85 md:text-2xl">
-                  “Marriage is a home being built — and every prayer, every kind thought, every gesture from loved ones like you becomes part of its foundation. If your heart leads you to bless ours, we receive it with quiet, overflowing gratitude.”
-                </p>
+                <ScrollWordReveal
+                  text="“Marriage is a home being built — and every prayer, every kind thought, every gesture from loved ones like you becomes part of its foundation. If your heart leads you to bless ours, we receive it with quiet, overflowing gratitude.”"
+                  className="font-display text-xl italic leading-relaxed text-ink/85 md:text-2xl"
+                />
               </motion.div>
 
               <AnimatePresence mode="wait">
@@ -813,6 +967,9 @@ export default function App() {
           </p>
         </div>
       </motion.footer>
+
+      {/* Floating Circular Scroll to Top Indicator */}
+      <ScrollToTopButton />
     </div>
   );
 }
