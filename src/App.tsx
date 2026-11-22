@@ -473,13 +473,6 @@ export default function App() {
             >
               Send a Gift
             </motion.button>
-            <button
-              type="button"
-              onClick={() => scrollTo('rsvp')}
-              className="v3-btn-compact"
-            >
-              RSVP
-            </button>
           </nav>
 
           <button
@@ -1011,26 +1004,6 @@ export default function App() {
               )}
             </AnimatePresence>
           </section>
-        </div>
-
-        {/* VowThread Mobile Docked Action Bar */}
-        <div className="v3-dock sticky bottom-0 z-30 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-2 sm:hidden">
-          <div className="flex gap-2 rounded-full bg-cream/95 p-1.5 shadow-[0_12px_40px_-12px_rgba(58,27,22,0.25)] ring-1 ring-clay/20 backdrop-blur">
-            <button
-              type="button"
-              onClick={() => scrollTo('rsvp')}
-              className="v3-btn-primary flex-1 !min-h-[46px]"
-            >
-              RSVP
-            </button>
-            <button
-              type="button"
-              onClick={() => scrollTo('gift')}
-              className="v3-btn-secondary flex-1 !min-h-[46px]"
-            >
-              Gifts
-            </button>
-          </div>
         </div>
       </main>
 
