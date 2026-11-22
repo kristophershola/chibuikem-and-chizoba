@@ -515,7 +515,7 @@ export default function App() {
                     transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
                   },
                 }}
-                className="v3-names mt-8 text-[clamp(3.5rem,11vw,6.25rem)] text-burgundy drop-shadow-[0_4px_16px_rgba(123,45,49,0.18)]"
+                className="v3-names-hero mt-8 text-burgundy drop-shadow-[0_4px_16px_rgba(123,45,49,0.18)]"
               >
                 Chibuikem
               </motion.h1>
@@ -558,7 +558,7 @@ export default function App() {
                     transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
                   },
                 }}
-                className="v3-names text-[clamp(3.5rem,11vw,6.25rem)] text-burgundy drop-shadow-[0_4px_16px_rgba(123,45,49,0.18)]"
+                className="v3-names-hero text-burgundy drop-shadow-[0_4px_16px_rgba(123,45,49,0.18)]"
               >
                 Chizoba
               </motion.h1>
