@@ -1,6 +1,6 @@
-# Chibuikem & Jennifer — Traditional Marriage Registry
+# Chibuikem & Chizoba — Traditional Marriage Registry
 
-A timeless, elegant wedding invitation and registry web application for the traditional marriage of Chibuikem and Jennifer.
+A timeless, elegant wedding invitation and registry web application for the traditional marriage of Chibuikem and Chizoba.
 
 ## Event Details
 

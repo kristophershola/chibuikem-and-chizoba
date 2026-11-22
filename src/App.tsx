@@ -186,10 +186,10 @@ export default function App() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            aria-label="CJ monogram"
+            aria-label="CC monogram"
           >
-            <span className="inline-flex items-center font-display text-gold" aria-label="CJ monogram">
-              <span className="text-2xl leading-none tracking-tight">CJ</span>
+            <span className="inline-flex items-center font-display text-gold" aria-label="CC monogram">
+              <span className="text-2xl leading-none tracking-tight">CC</span>
             </span>
           </a>
 
@@ -267,7 +267,7 @@ export default function App() {
                 <span className="h-px w-16 bg-gold/60"></span>
               </div>
               <h1 className="font-script text-7xl leading-none text-ink/85 drop-shadow-[0_4px_12px_rgba(120,90,40,0.18)] md:text-9xl">
-                Jennifer
+                Chizoba
               </h1>
               <div className="mt-12 flex items-center justify-center gap-3">
                 <span className="h-px w-12 bg-gold/60"></span>
@@ -288,7 +288,7 @@ export default function App() {
               “Your love and prayers — in person or in spirit — is the greatest gift we could ask for. For those who have asked how to bless our home, please use the avenue provided below. Whatever you choose, do know that your love is already more than enough.”
             </p>
             <p className="mt-6 font-script text-3xl text-gold drop-shadow-[0_2px_6px_rgba(180,140,60,0.3)]">
-              Chibuikem &amp; Jennifer
+              Chibuikem &amp; Chizoba
             </p>
           </section>
 
@@ -554,10 +554,10 @@ export default function App() {
         <div className="mx-auto max-w-6xl px-6 py-12 text-center">
           <div className="gold-rule mx-auto mb-8 max-w-xs"></div>
           <p className="font-display text-2xl text-ink">With all our love,</p>
-          <p className="mt-2 font-script text-5xl text-gold">Chibuikem &amp; Jennifer</p>
-          <p className="mt-6 text-xs uppercase tracking-[0.3em] text-muted-foreground">#CJ2026</p>
+          <p className="mt-2 font-script text-5xl text-gold">Chibuikem &amp; Chizoba</p>
+          <p className="mt-6 text-xs uppercase tracking-[0.3em] text-muted-foreground">#CC2026</p>
           <p className="mt-3 text-xs text-muted-foreground/70">
-            © {new Date().getFullYear()} Chibuikem &amp; Jennifer.
+            © {new Date().getFullYear()} Chibuikem &amp; Chizoba.
           </p>
         </div>
       </footer>
