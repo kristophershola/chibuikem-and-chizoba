@@ -66,56 +66,6 @@
 .bg-cream\/40 { background-color: rgba(252, 251, 242, 0.4) !important; }
 .border-cream { border-color: var(--cream) !important; }
 
-/* Tribal Geometric Divider System (sitewide) */
-.tribal-divider,
-.gold-rule {
-  display: block;
-  height: 13px;
-  width: 100%;
-  max-width: 220px;
-  margin-left: auto;
-  margin-right: auto;
-  background-image: url('/divider.png') !important;
-  background-repeat: repeat-x !important;
-  background-position: center !important;
-  background-size: auto 13px !important;
-  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-  opacity: 0.95;
-}
-
-.tribal-divider-fade {
-  display: block;
-  height: 13px;
-  width: 100%;
-  max-width: 320px;
-  margin-left: auto;
-  margin-right: auto;
-  background-image: url('/divider.png') !important;
-  background-repeat: repeat-x !important;
-  background-position: center !important;
-  background-size: auto 13px !important;
-  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-  opacity: 0.95;
-}
-
-.tribal-divider-wide {
-  display: block;
-  height: 13px;
-  width: 100%;
-  max-width: 520px;
-  margin-left: auto;
-  margin-right: auto;
-  background-image: url('/divider.png') !important;
-  background-repeat: repeat-x !important;
-  background-position: center !important;
-  background-size: auto 13px !important;
-  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-  opacity: 0.92;
-}
-
 .field-input {
   border: 1px solid rgba(184, 103, 47, 0.3) !important;
   background-color: #FFFFFF !important;

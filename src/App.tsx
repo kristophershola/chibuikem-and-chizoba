@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { HugeiconsIcon } from '@hugeicons/react';
 import {
   Location01Icon,
@@ -562,24 +562,12 @@ export default function App() {
                 Chizoba
               </motion.h1>
 
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0, scaleX: 0 },
-                  visible: {
-                    opacity: 1,
-                    scaleX: 1,
-                    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
-                  },
-                }}
-                className="tribal-divider mx-auto mt-10 max-w-[220px] origin-center"
-              />
-
               <motion.p
                 variants={{
                   hidden: { opacity: 0, y: 15 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
                 }}
-                className="mt-8 font-body text-[16px] font-medium tracking-[0.02em] text-cocoa drop-shadow-[0_1px_2px_rgba(0,0,0,0.06)]"
+                className="mt-10 font-body text-[16px] font-medium tracking-[0.02em] text-cocoa drop-shadow-[0_1px_2px_rgba(0,0,0,0.06)]"
               >
                 Saturday, 19th December 2026 · Lagos
               </motion.p>
@@ -589,7 +577,7 @@ export default function App() {
                   hidden: { opacity: 0, y: 15 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.15 } },
                 }}
-                className="mt-8 flex items-center justify-center"
+                className="mt-10 flex items-center justify-center"
               >
                 <button
                   type="button"
@@ -611,23 +599,14 @@ export default function App() {
             className="mx-auto max-w-3xl px-6 py-20 text-center"
           >
             <p className="v3-eyebrow text-clay">A note from us</p>
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-              className="tribal-divider mx-auto my-6 max-w-[220px] origin-center"
-            ></motion.div>
             <ScrollWordReveal
               text="“Your love and prayers — in person or in spirit — is the greatest gift we could ask for. For those who have asked how to bless our home, please use the avenue provided below. Whatever you choose, do know that your love is already more than enough.”"
-              className="font-display text-xl italic leading-relaxed text-cocoa/90 md:text-2xl"
+              className="mt-6 font-display text-xl italic leading-relaxed text-cocoa/90 md:text-2xl"
             />
             <p className="v3-names mt-6 text-3xl text-burgundy drop-shadow-[0_2px_6px_rgba(123,45,49,0.2)] md:text-4xl">
               Chibuikem &amp; Chizoba
             </p>
           </motion.section>
-
-          <div className="tribal-divider-wide mx-auto my-6" aria-hidden="true" />
 
           {/* When & Where Section with 3D Perspective Scroll Card */}
           <section id="details" className="relative bg-cream/40 py-24">
@@ -640,13 +619,6 @@ export default function App() {
               >
                 <p className="v3-eyebrow text-clay">When &amp; Where</p>
                 <h2 className="v3-h2 mt-3 text-cocoa">The Celebration</h2>
-                <motion.div
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, ease: 'easeOut' }}
-                  className="tribal-divider mx-auto my-6 max-w-[220px] origin-center"
-                />
               </motion.div>
 
               <CelebrationCard />
@@ -664,16 +636,9 @@ export default function App() {
               >
                 <p className="v3-eyebrow text-clay">Bless Our Home</p>
                 <h2 className="v3-h2 mt-3 text-cocoa">Send a Gift</h2>
-                <motion.div
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, ease: 'easeOut' }}
-                  className="tribal-divider mx-auto my-6 max-w-[220px] origin-center"
-                />
                 <ScrollWordReveal
                   text="“Marriage is a home being built — and every prayer, every kind thought, every gesture from loved ones like you becomes part of its foundation. If your heart leads you to bless ours, we receive it with quiet, overflowing gratitude.”"
-                  className="font-display text-xl italic leading-relaxed text-cocoa/90 md:text-2xl"
+                  className="mt-6 font-display text-xl italic leading-relaxed text-cocoa/90 md:text-2xl"
                 />
               </motion.div>
 
@@ -693,7 +658,7 @@ export default function App() {
                     <p className="mt-1 text-center font-body text-[15px] text-cocoa/75">
                       Please use the bank details below to complete your transfer.
                     </p>
-                    <div className="my-6 tribal-divider max-w-[220px]"></div>
+                    <div className="my-6 border-t border-clay/20"></div>
                     <dl className="space-y-4">
                       {bankDetails.map((item, index) => (
                         <motion.div
@@ -774,8 +739,6 @@ export default function App() {
             </div>
           </section>
 
-          <div className="tribal-divider-wide mx-auto my-6" aria-hidden="true" />
-
           {/* RSVP Section */}
           <section id="rsvp" className="mx-auto max-w-2xl px-6 py-24 text-center">
             <motion.div
@@ -786,14 +749,7 @@ export default function App() {
             >
               <p className="v3-eyebrow text-clay">Kindly Respond</p>
               <h2 className="v3-h2-xl mt-3 text-cocoa">Will you join us?</h2>
-              <motion.div
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: 'easeOut' }}
-                className="tribal-divider mx-auto my-6 max-w-[220px] origin-center"
-              />
-              <p className="font-body text-[16px] leading-relaxed text-cocoa/80">
+              <p className="mt-6 font-body text-[16px] leading-relaxed text-cocoa/80">
                 Your presence would mean the world to us. Please let us know by sending in your details below.
               </p>
             </motion.div>
@@ -942,13 +898,6 @@ export default function App() {
         className="mt-24 border-t border-clay/20 bg-cream/60"
       >
         <div className="mx-auto max-w-6xl px-6 py-12 text-center">
-          <motion.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="tribal-divider-fade mx-auto mb-8 max-w-xs origin-center"
-          ></motion.div>
           <p className="v3-invite text-cocoa text-xl">With all our love,</p>
           <p className="v3-names mt-3 text-[42px] md:text-[54px] text-burgundy drop-shadow-[0_2px_8px_rgba(123,45,49,0.18)]">
             Chibuikem &amp; Chizoba
