@@ -81,8 +81,7 @@
   background-size: auto 13px !important;
   -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
   mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-  opacity: 0.88;
-  filter: sepia(0.35) contrast(1.05);
+  opacity: 0.95;
 }
 
 .tribal-divider-fade {
@@ -98,8 +97,7 @@
   background-size: auto 13px !important;
   -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
   mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-  opacity: 0.88;
-  filter: sepia(0.35) contrast(1.05);
+  opacity: 0.95;
 }
 
 .tribal-divider-wide {
@@ -115,8 +113,7 @@
   background-size: auto 13px !important;
   -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
   mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-  opacity: 0.82;
-  filter: sepia(0.35) contrast(1.05);
+  opacity: 0.92;
 }
 
 .field-input {

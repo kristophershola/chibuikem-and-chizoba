@@ -191,70 +191,6 @@ function ParallaxBackgroundMotifs() {
   );
 }
 
-// Target: Saturday, December 19, 2026 at 12:30 PM (WAT / Lagos UTC+1)
-const WEDDING_TARGET_TIME = new Date('2026-12-19T12:30:00+01:00').getTime();
-
-function CountdownTimer() {
-  const [timeLeft, setTimeLeft] = useState(() => {
-    const diff = Math.max(0, WEDDING_TARGET_TIME - Date.now());
-    return {
-      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((diff / (1000 * 60)) % 60),
-      seconds: Math.floor((diff / 1000) % 60),
-    };
-  });
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const diff = Math.max(0, WEDDING_TARGET_TIME - Date.now());
-      setTimeLeft({
-        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((diff / (1000 * 60)) % 60),
-        seconds: Math.floor((diff / 1000) % 60),
-      });
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const format = (n: number) => String(n).padStart(2, '0');
-
-  return (
-    <div className="flex items-center justify-center gap-2 sm:gap-3.5 select-none">
-      <TimeUnit value={format(timeLeft.days)} label="Days" />
-      <span className="font-display text-xl sm:text-2xl font-semibold text-clay/50 pb-5" aria-hidden="true">:</span>
-      <TimeUnit value={format(timeLeft.hours)} label="Hours" />
-      <span className="font-display text-xl sm:text-2xl font-semibold text-clay/50 pb-5" aria-hidden="true">:</span>
-      <TimeUnit value={format(timeLeft.minutes)} label="Minutes" />
-      <span className="font-display text-xl sm:text-2xl font-semibold text-clay/50 pb-5" aria-hidden="true">:</span>
-      <TimeUnit value={format(timeLeft.seconds)} label="Seconds" />
-    </div>
-  );
-}
-
-function TimeUnit({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="flex flex-col items-center">
-      <div className="relative flex h-16 w-14 sm:h-20 sm:w-18 items-center justify-center overflow-hidden rounded-2xl border border-clay/30 bg-cream/80 backdrop-blur shadow-[0_8px_24px_-10px_rgba(58,27,22,0.15)] ring-1 ring-clay/10 transition-shadow hover:shadow-[0_12px_28px_-8px_rgba(123,45,49,0.2)]">
-        <AnimatePresence mode="popLayout" initial={false}>
-          <motion.span
-            key={value}
-            initial={{ y: 16, opacity: 0, filter: 'blur(2px)' }}
-            animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
-            exit={{ y: -16, opacity: 0, filter: 'blur(2px)' }}
-            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-3xl sm:text-4xl font-semibold text-cocoa tabular-nums"
-          >
-            {value}
-          </motion.span>
-        </AnimatePresence>
-      </div>
-      <span className="v3-eyebrow mt-2.5 text-[10px] sm:text-[11px] text-clay tracking-[0.2em]">{label}</span>
-    </div>
-  );
-}
-
 function CelebrationCard() {
   const cardRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -650,20 +586,10 @@ export default function App() {
 
               <motion.div
                 variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.12 } },
-                }}
-                className="mt-8 flex justify-center"
-              >
-                <CountdownTimer />
-              </motion.div>
-
-              <motion.div
-                variants={{
                   hidden: { opacity: 0, y: 15 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.22 } },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.15 } },
                 }}
-                className="mt-10 flex items-center justify-center"
+                className="mt-8 flex items-center justify-center"
               >
                 <button
                   type="button"
