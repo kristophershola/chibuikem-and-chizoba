@@ -1,17 +1,16 @@
 import React, { useState, useRef } from 'react';
+import { HugeiconsIcon } from '@hugeicons/react';
 import {
-  MapPin,
-  Clock,
-  ExternalLink,
-  Heart,
-  Copy,
-  Check,
-  Menu,
-  X,
-  Loader2,
-  ArrowUp,
-  Sparkles,
-} from 'lucide-react';
+  Location01Icon,
+  Time01Icon,
+  LinkSquare01Icon,
+  HeartIcon,
+  Copy01Icon,
+  CheckmarkCircle01Icon,
+  Menu01Icon,
+  Cancel01Icon,
+  Loading03Icon,
+} from '@hugeicons/core-free-icons';
 import { Toaster, toast } from 'sonner';
 import {
   motion,
@@ -65,7 +64,7 @@ function CopyButton({ value, label }: { value: string; label?: string }) {
             transition={{ duration: 0.15 }}
             className="inline-flex items-center gap-1"
           >
-            <Check size={14} className="text-gold" />
+            <HugeiconsIcon icon={CheckmarkCircle01Icon} size={14} className="text-gold" />
             <span>Copied</span>
           </motion.span>
         ) : (
@@ -77,7 +76,7 @@ function CopyButton({ value, label }: { value: string; label?: string }) {
             transition={{ duration: 0.15 }}
             className="inline-flex items-center gap-1"
           >
-            <Copy size={14} />
+            <HugeiconsIcon icon={Copy01Icon} size={14} />
             <span>Copy</span>
           </motion.span>
         )}
@@ -191,48 +190,6 @@ function ParallaxBackgroundMotifs() {
   );
 }
 
-function ScrollToTopButton() {
-  const { scrollYProgress } = useScroll();
-  const opacity = useTransform(scrollYProgress, [0, 0.08, 0.15], [0, 0, 1]);
-  const scale = useTransform(scrollYProgress, [0, 0.08, 0.15], [0.8, 0.8, 1]);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  return (
-    <motion.button
-      style={{ opacity, scale }}
-      onClick={scrollToTop}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.92 }}
-      className="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-gold/40 bg-background/90 p-0 text-gold shadow-lg backdrop-blur-md cursor-pointer transition-colors hover:border-gold hover:bg-gold/10"
-      aria-label="Scroll to top"
-    >
-      <svg className="absolute inset-0 -rotate-90" width="48" height="48" viewBox="0 0 48 48">
-        <circle
-          cx="24"
-          cy="24"
-          r="20"
-          className="stroke-gold/20"
-          strokeWidth="2.5"
-          fill="none"
-        />
-        <motion.circle
-          cx="24"
-          cy="24"
-          r="20"
-          className="stroke-gold"
-          strokeWidth="2.5"
-          fill="none"
-          style={{ pathLength: scrollYProgress }}
-        />
-      </svg>
-      <ArrowUp size={18} className="relative z-10" />
-    </motion.button>
-  );
-}
-
 function CelebrationCard() {
   const cardRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -256,11 +213,11 @@ function CelebrationCard() {
           <p className="font-smallcaps text-xs text-gold">Traditional Marriage</p>
           <h3 className="mt-3 font-display text-3xl text-ink">Signatious Hotel</h3>
           <p className="mt-3 inline-flex items-center gap-2 text-sm text-ink/75">
-            <MapPin size={14} className="text-gold" />
+            <HugeiconsIcon icon={Location01Icon} size={14} className="text-gold" />
             Ajau Estate, Lagos
           </p>
           <p className="mt-1 inline-flex items-center gap-2 text-sm text-ink/75">
-            <Clock size={14} className="text-gold" />
+            <HugeiconsIcon icon={Time01Icon} size={14} className="text-gold" />
             12:30 pm
           </p>
         </div>
@@ -282,7 +239,7 @@ function CelebrationCard() {
             rel="noreferrer"
             className="inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.25em] text-gold hover:underline cursor-pointer"
           >
-            Open in Google Maps <ExternalLink size={12} />
+            Open in Google Maps <HugeiconsIcon icon={LinkSquare01Icon} size={12} />
           </motion.a>
         </div>
       </motion.article>
@@ -460,7 +417,11 @@ export default function App() {
             className="rounded-md p-2 text-ink md:hidden cursor-pointer"
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            {mobileMenuOpen ? (
+              <HugeiconsIcon icon={Cancel01Icon} size={20} />
+            ) : (
+              <HugeiconsIcon icon={Menu01Icon} size={20} />
+            )}
           </button>
         </div>
 
@@ -779,9 +740,9 @@ export default function App() {
                       className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-7 py-3 text-sm uppercase tracking-[0.25em] text-primary-foreground shadow-md transition-all hover:bg-gold/90 disabled:opacity-60 cursor-pointer"
                     >
                       {giftSubmitting ? (
-                        <Loader2 size={16} className="animate-spin" />
+                        <HugeiconsIcon icon={Loading03Icon} size={16} className="animate-spin" />
                       ) : (
-                        <Heart size={16} />
+                        <HugeiconsIcon icon={HeartIcon} size={16} />
                       )}
                       Reveal Bank Details
                     </motion.button>
@@ -823,7 +784,7 @@ export default function App() {
                     transition={{ type: 'spring', stiffness: 350, damping: 20, delay: 0.1 }}
                     className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-gold/15 text-gold"
                   >
-                    <Check size={20} />
+                    <HugeiconsIcon icon={CheckmarkCircle01Icon} size={20} />
                   </motion.div>
                   <p className="font-display text-2xl text-ink">Thank you, dear one.</p>
                   <p className="mt-2 text-sm text-ink/75">
@@ -934,7 +895,9 @@ export default function App() {
                     whileTap={{ scale: 0.98 }}
                     className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-7 py-3 text-sm uppercase tracking-[0.25em] text-primary-foreground shadow-md transition-all hover:bg-gold/90 disabled:opacity-60 cursor-pointer"
                   >
-                    {rsvpSubmitting ? <Loader2 size={16} className="animate-spin" /> : null}
+                    {rsvpSubmitting ? (
+                      <HugeiconsIcon icon={Loading03Icon} size={16} className="animate-spin" />
+                    ) : null}
                     Send my RSVP
                   </motion.button>
                 </motion.form>
@@ -968,9 +931,6 @@ export default function App() {
           </p>
         </div>
       </motion.footer>
-
-      {/* Floating Circular Scroll to Top Indicator */}
-      <ScrollToTopButton />
     </div>
   );
 }
