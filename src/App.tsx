@@ -4,6 +4,7 @@ import {
   Location01Icon,
   Time01Icon,
   LinkSquare01Icon,
+  Calendar03Icon,
   HeartIcon,
   Copy01Icon,
   CheckmarkCircle01Icon,
@@ -50,9 +51,9 @@ function CopyButton({ value, label }: { value: string; label?: string }) {
     <motion.button
       type="button"
       onClick={handleCopy}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.94 }}
-      className="inline-flex items-center gap-1.5 rounded-md border border-clay/30 bg-background px-2.5 py-1 text-xs text-cocoa transition-colors hover:border-clay hover:bg-clay/10 cursor-pointer"
+      whileHover={{ scale: 1.04 }}
+      whileTap={{ scale: 0.96 }}
+      className="inline-flex min-h-[32px] items-center gap-1.5 rounded-full border border-clay/35 bg-cream/70 px-3 py-1 text-xs font-semibold text-cocoa transition-colors hover:border-burgundy hover:text-burgundy cursor-pointer"
     >
       <AnimatePresence mode="wait" initial={false}>
         {copied ? (
@@ -230,17 +231,23 @@ function CelebrationCard() {
             className="h-full w-full border-0"
           />
         </div>
-        <div className="border-t border-clay/20 bg-cream/60 px-7 py-3 text-center">
-          <motion.a
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
+        <div className="border-t border-clay/20 bg-cream/60 px-7 py-4 text-center flex flex-wrap items-center justify-center gap-3">
+          <a
             href="https://www.google.com/maps/search/?api=1&query=Signatious+Hotel+Ajau+Estate+Lagos"
             target="_blank"
             rel="noreferrer"
-            className="v3-nav inline-flex items-center gap-1.5 text-[13px] text-clay hover:text-burgundy hover:underline cursor-pointer"
+            className="v3-btn-secondary"
           >
-            Open in Google Maps <HugeiconsIcon icon={LinkSquare01Icon} size={12} />
-          </motion.a>
+            Directions <HugeiconsIcon icon={LinkSquare01Icon} size={14} />
+          </a>
+          <a
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Chibuikem+%26+Chizoba+Traditional+Marriage&dates=20261219T113000Z/20261219T180000Z&details=Celebrating+the+traditional+marriage+of+Chibuikem+and+Chizoba&location=Signatious+Hotel,+Ajau+Estate,+Lagos"
+            target="_blank"
+            rel="noreferrer"
+            className="v3-btn-secondary"
+          >
+            Add to calendar <HugeiconsIcon icon={Calendar03Icon} size={14} />
+          </a>
         </div>
       </motion.article>
     </div>
@@ -385,7 +392,7 @@ export default function App() {
             </span>
           </motion.a>
 
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-7 md:flex">
             <motion.button
               whileHover={{ y: -1 }}
               whileTap={{ scale: 0.96 }}
@@ -397,19 +404,18 @@ export default function App() {
             <motion.button
               whileHover={{ y: -1 }}
               whileTap={{ scale: 0.96 }}
-              onClick={() => scrollTo('rsvp')}
-              className="v3-nav text-cocoa/75 transition-colors hover:text-burgundy cursor-pointer"
-            >
-              RSVP
-            </motion.button>
-            <motion.button
-              whileHover={{ y: -1 }}
-              whileTap={{ scale: 0.96 }}
               onClick={() => scrollTo('gift')}
               className="v3-nav text-cocoa/75 transition-colors hover:text-burgundy cursor-pointer"
             >
               Send a Gift
             </motion.button>
+            <button
+              type="button"
+              onClick={() => scrollTo('rsvp')}
+              className="v3-btn-compact"
+            >
+              RSVP
+            </button>
           </nav>
 
           <button
@@ -589,6 +595,22 @@ export default function App() {
               >
                 Saturday, 19th December 2026 · Lagos
               </motion.p>
+
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 15 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.15 } },
+                }}
+                className="mt-8 flex items-center justify-center"
+              >
+                <button
+                  type="button"
+                  onClick={() => scrollTo('rsvp')}
+                  className="v3-btn-primary"
+                >
+                  RSVP
+                </button>
+              </motion.div>
             </motion.div>
           </section>
 
@@ -732,12 +754,10 @@ export default function App() {
                       />
                     </FormField>
 
-                    <motion.button
+                    <button
                       type="submit"
                       disabled={giftSubmitting}
-                      whileHover={{ scale: 1.02, y: -1 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="v3-btn inline-flex w-full items-center justify-center gap-2 rounded-full bg-burgundy px-7 py-3.5 text-cream shadow-md transition-all hover:bg-burgundy/90 disabled:opacity-60 cursor-pointer"
+                      className="v3-btn-primary w-full"
                     >
                       {giftSubmitting ? (
                         <HugeiconsIcon icon={Loading03Icon} size={16} className="animate-spin text-cream" />
@@ -745,7 +765,7 @@ export default function App() {
                         <HugeiconsIcon icon={HeartIcon} size={16} className="text-rose" />
                       )}
                       Reveal Bank Details
-                    </motion.button>
+                    </button>
                   </motion.form>
                 )}
               </AnimatePresence>
@@ -790,10 +810,8 @@ export default function App() {
                   <p className="mt-2 font-body text-[15px] text-cocoa/80">
                     Your response has been received with so much joy. We can’t wait to celebrate with you.
                   </p>
-                  <motion.button
+                  <button
                     type="button"
-                    whileHover={{ scale: 1.04 }}
-                    whileTap={{ scale: 0.96 }}
                     onClick={() => {
                       setRsvpSubmitted(false);
                       setRsvpForm({
@@ -804,10 +822,10 @@ export default function App() {
                         message: '',
                       });
                     }}
-                    className="v3-nav mt-5 text-clay hover:text-burgundy hover:underline cursor-pointer"
+                    className="v3-btn-secondary mt-5"
                   >
                     Submit another response
-                  </motion.button>
+                  </button>
                 </motion.div>
               ) : (
                 <motion.form
@@ -888,22 +906,40 @@ export default function App() {
                     />
                   </FormField>
 
-                  <motion.button
+                  <button
                     type="submit"
                     disabled={rsvpSubmitting}
-                    whileHover={{ scale: 1.02, y: -1 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="v3-btn inline-flex w-full items-center justify-center gap-2 rounded-full bg-burgundy px-7 py-3.5 text-cream shadow-md transition-all hover:bg-burgundy/90 disabled:opacity-60 cursor-pointer"
+                    className="v3-btn-primary w-full"
                   >
                     {rsvpSubmitting ? (
                       <HugeiconsIcon icon={Loading03Icon} size={16} className="animate-spin text-cream" />
                     ) : null}
                     Send my RSVP
-                  </motion.button>
+                  </button>
                 </motion.form>
               )}
             </AnimatePresence>
           </section>
+        </div>
+
+        {/* VowThread Mobile Docked Action Bar */}
+        <div className="v3-dock sticky bottom-0 z-30 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-2 sm:hidden">
+          <div className="flex gap-2 rounded-full bg-cream/95 p-1.5 shadow-[0_12px_40px_-12px_rgba(58,27,22,0.25)] ring-1 ring-clay/20 backdrop-blur">
+            <button
+              type="button"
+              onClick={() => scrollTo('rsvp')}
+              className="v3-btn-primary flex-1 !min-h-[46px]"
+            >
+              RSVP
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollTo('gift')}
+              className="v3-btn-secondary flex-1 !min-h-[46px]"
+            >
+              Gifts
+            </button>
+          </div>
         </div>
       </main>
 
