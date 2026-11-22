@@ -931,7 +931,7 @@ export default function App() {
                     {rsvpSubmitting ? (
                       <HugeiconsIcon icon={Loading03Icon} size={16} className="animate-spin text-cream" />
                     ) : null}
-                    Send my RSVP
+                    RSVP
                   </button>
                 </motion.form>
               )}
