@@ -136,9 +136,12 @@ function ScrollWordReveal({ text, className }: { text: string; className?: strin
         const start = i / words.length;
         const end = Math.min(start + 1.5 / words.length, 1);
         return (
-          <ScrollWordItem key={i} progress={scrollYProgress} range={[start, end]}>
-            {word}
-          </ScrollWordItem>
+          <React.Fragment key={i}>
+            <ScrollWordItem progress={scrollYProgress} range={[start, end]}>
+              {word}
+            </ScrollWordItem>
+            {i < words.length - 1 ? ' ' : null}
+          </React.Fragment>
         );
       })}
     </p>
@@ -154,15 +157,13 @@ function ScrollWordItem({
   progress: MotionValue<number>;
   range: [number, number];
 }) {
-  const opacity = useTransform(progress, range, [0.22, 1]);
+  const opacity = useTransform(progress, range, [0.25, 1]);
   const y = useTransform(progress, range, [3, 0]);
 
   return (
-    <span className="inline-block relative mr-[0.28em] last:mr-0">
-      <motion.span style={{ opacity, y }} className="inline-block transition-colors">
-        {children}
-      </motion.span>
-    </span>
+    <motion.span style={{ opacity, y }} className="inline-block transition-colors">
+      {children}
+    </motion.span>
   );
 }
 
