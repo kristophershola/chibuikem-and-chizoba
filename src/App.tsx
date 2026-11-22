@@ -96,7 +96,7 @@ function FormField({
 }) {
   return (
     <label className="block">
-      <span className="font-smallcaps text-[0.65rem] text-clay font-medium">{label}</span>
+      <span className="v3-eyebrow text-clay">{label}</span>
       <div
         className={`mt-2 ${
           error
@@ -210,13 +210,13 @@ function CelebrationCard() {
         className="overflow-hidden rounded-2xl border border-clay/35 bg-card text-left shadow-[0_20px_50px_-25px_rgba(58,27,22,0.16)] transition-shadow hover:shadow-[0_30px_60px_-25px_rgba(123,45,49,0.22)]"
       >
         <div className="px-7 py-8 text-center">
-          <p className="font-smallcaps text-xs text-clay">Traditional Marriage</p>
-          <h3 className="mt-3 font-display text-3xl text-cocoa">Signatious Hotel</h3>
-          <p className="mt-3 inline-flex items-center gap-2 text-sm text-cocoa/80">
+          <p className="v3-eyebrow text-clay">Traditional Marriage</p>
+          <h3 className="v3-h3 mt-3 text-cocoa">Signatious Hotel</h3>
+          <p className="mt-3 inline-flex items-center gap-2 font-body text-[15px] text-cocoa/80">
             <HugeiconsIcon icon={Location01Icon} size={14} className="text-clay" />
             Ajau Estate, Lagos
           </p>
-          <p className="mt-1 inline-flex items-center gap-2 text-sm text-cocoa/80">
+          <p className="mt-1 inline-flex items-center gap-2 font-body text-[15px] text-cocoa/80">
             <HugeiconsIcon icon={Time01Icon} size={14} className="text-clay" />
             12:30 pm
           </p>
@@ -237,7 +237,7 @@ function CelebrationCard() {
             href="https://www.google.com/maps/search/?api=1&query=Signatious+Hotel+Ajau+Estate+Lagos"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.25em] text-clay hover:text-burgundy hover:underline cursor-pointer"
+            className="v3-nav inline-flex items-center gap-1.5 text-[13px] text-clay hover:text-burgundy hover:underline cursor-pointer"
           >
             Open in Google Maps <HugeiconsIcon icon={LinkSquare01Icon} size={12} />
           </motion.a>
@@ -380,8 +380,8 @@ export default function App() {
             }}
             aria-label="CC monogram"
           >
-            <span className="inline-flex items-center font-display text-burgundy font-bold" aria-label="CC monogram">
-              <span className="text-2xl leading-none tracking-tight">CC</span>
+            <span className="v3-names inline-flex items-center text-burgundy text-3xl leading-none" aria-label="CC monogram">
+              CC
             </span>
           </motion.a>
 
@@ -390,7 +390,7 @@ export default function App() {
               whileHover={{ y: -1 }}
               whileTap={{ scale: 0.96 }}
               onClick={() => scrollTo('details')}
-              className="text-xs uppercase tracking-[0.25em] text-cocoa/75 transition-colors hover:text-burgundy cursor-pointer"
+              className="v3-nav text-cocoa/75 transition-colors hover:text-burgundy cursor-pointer"
             >
               Details
             </motion.button>
@@ -398,7 +398,7 @@ export default function App() {
               whileHover={{ y: -1 }}
               whileTap={{ scale: 0.96 }}
               onClick={() => scrollTo('rsvp')}
-              className="text-xs uppercase tracking-[0.25em] text-cocoa/75 transition-colors hover:text-burgundy cursor-pointer"
+              className="v3-nav text-cocoa/75 transition-colors hover:text-burgundy cursor-pointer"
             >
               RSVP
             </motion.button>
@@ -406,7 +406,7 @@ export default function App() {
               whileHover={{ y: -1 }}
               whileTap={{ scale: 0.96 }}
               onClick={() => scrollTo('gift')}
-              className="text-xs uppercase tracking-[0.25em] text-cocoa/75 transition-colors hover:text-burgundy cursor-pointer"
+              className="v3-nav text-cocoa/75 transition-colors hover:text-burgundy cursor-pointer"
             >
               Send a Gift
             </motion.button>
@@ -436,19 +436,19 @@ export default function App() {
             >
               <button
                 onClick={() => scrollTo('details')}
-                className="rounded px-2 py-2 text-left text-xs uppercase tracking-[0.25em] text-cocoa/80 hover:bg-rose/10 hover:text-burgundy"
+                className="v3-nav rounded px-3 py-2.5 text-left text-cocoa/80 hover:bg-rose/10 hover:text-burgundy"
               >
                 Details
               </button>
               <button
                 onClick={() => scrollTo('rsvp')}
-                className="rounded px-2 py-2 text-left text-xs uppercase tracking-[0.25em] text-cocoa/80 hover:bg-rose/10 hover:text-burgundy"
+                className="v3-nav rounded px-3 py-2.5 text-left text-cocoa/80 hover:bg-rose/10 hover:text-burgundy"
               >
                 RSVP
               </button>
               <button
                 onClick={() => scrollTo('gift')}
-                className="rounded px-2 py-2 text-left text-xs uppercase tracking-[0.25em] text-cocoa/80 hover:bg-rose/10 hover:text-burgundy"
+                className="v3-nav rounded px-3 py-2.5 text-left text-cocoa/80 hover:bg-rose/10 hover:text-burgundy"
               >
                 Send a Gift
               </button>
@@ -500,7 +500,7 @@ export default function App() {
                   hidden: { opacity: 0, y: 15 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
                 }}
-                className="font-smallcaps text-xs text-clay md:text-sm tracking-[0.25em]"
+                className="v3-invite text-clay md:text-xl"
               >
                 Together with our families
               </motion.p>
@@ -515,7 +515,7 @@ export default function App() {
                     transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
                   },
                 }}
-                className="mt-10 font-script text-7xl leading-none text-burgundy drop-shadow-[0_4px_16px_rgba(123,45,49,0.18)] md:text-9xl"
+                className="v3-names mt-8 text-[clamp(3.5rem,11vw,6.25rem)] text-burgundy drop-shadow-[0_4px_16px_rgba(123,45,49,0.18)]"
               >
                 Chibuikem
               </motion.h1>
@@ -529,7 +529,7 @@ export default function App() {
                     transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
                   },
                 }}
-                className="my-10 flex items-center justify-center gap-4"
+                className="my-8 flex items-center justify-center gap-4"
               >
                 <motion.span
                   initial={{ scaleX: 0 }}
@@ -537,7 +537,7 @@ export default function App() {
                   transition={{ duration: 0.8, delay: 0.35 }}
                   className="h-px w-16 origin-right bg-clay/50"
                 ></motion.span>
-                <span className="font-script text-5xl text-clay drop-shadow-[0_2px_6px_rgba(184,103,47,0.35)] md:text-6xl">
+                <span className="v3-amp text-clay text-[clamp(2.25rem,6vw,3.5rem)] drop-shadow-[0_2px_6px_rgba(184,103,47,0.35)]">
                   &amp;
                 </span>
                 <motion.span
@@ -558,7 +558,7 @@ export default function App() {
                     transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
                   },
                 }}
-                className="font-script text-7xl leading-none text-burgundy drop-shadow-[0_4px_16px_rgba(123,45,49,0.18)] md:text-9xl"
+                className="v3-names text-[clamp(3.5rem,11vw,6.25rem)] text-burgundy drop-shadow-[0_4px_16px_rgba(123,45,49,0.18)]"
               >
                 Chizoba
               </motion.h1>
@@ -585,9 +585,9 @@ export default function App() {
                   hidden: { opacity: 0, y: 15 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
                 }}
-                className="mt-8 font-display text-2xl font-bold tracking-wide text-cocoa drop-shadow-[0_2px_4px_rgba(0,0,0,0.08)] md:text-3xl"
+                className="mt-8 font-body text-[16px] font-medium tracking-[0.02em] text-cocoa drop-shadow-[0_1px_2px_rgba(0,0,0,0.06)]"
               >
-                Saturday, 19th December 2026
+                Saturday, 19th December 2026 · Lagos
               </motion.p>
             </motion.div>
           </section>
@@ -600,7 +600,7 @@ export default function App() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="mx-auto max-w-3xl px-6 py-20 text-center"
           >
-            <p className="font-smallcaps text-xs text-clay">A note from us</p>
+            <p className="v3-eyebrow text-clay">A note from us</p>
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
@@ -612,7 +612,7 @@ export default function App() {
               text="“Your love and prayers — in person or in spirit — is the greatest gift we could ask for. For those who have asked how to bless our home, please use the avenue provided below. Whatever you choose, do know that your love is already more than enough.”"
               className="font-display text-xl italic leading-relaxed text-cocoa/90 md:text-2xl"
             />
-            <p className="mt-6 font-script text-3xl text-burgundy drop-shadow-[0_2px_6px_rgba(123,45,49,0.2)] md:text-4xl">
+            <p className="v3-names mt-6 text-3xl text-burgundy drop-shadow-[0_2px_6px_rgba(123,45,49,0.2)] md:text-4xl">
               Chibuikem &amp; Chizoba
             </p>
           </motion.section>
@@ -626,8 +626,8 @@ export default function App() {
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.6 }}
               >
-                <p className="font-smallcaps text-xs text-clay">When &amp; Where</p>
-                <h2 className="mt-3 font-display text-4xl text-cocoa md:text-5xl">The Celebration</h2>
+                <p className="v3-eyebrow text-clay">When &amp; Where</p>
+                <h2 className="v3-h2 mt-3 text-cocoa">The Celebration</h2>
                 <div className="gold-rule mx-auto my-6 max-w-[120px]"></div>
               </motion.div>
 
@@ -644,8 +644,8 @@ export default function App() {
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.6 }}
               >
-                <p className="font-smallcaps text-xs text-clay">Bless Our Home</p>
-                <h2 className="mt-3 font-display text-4xl text-cocoa md:text-5xl">Send a Gift</h2>
+                <p className="v3-eyebrow text-clay">Bless Our Home</p>
+                <h2 className="v3-h2 mt-3 text-cocoa">Send a Gift</h2>
                 <div className="gold-rule mx-auto my-6 max-w-[120px]"></div>
                 <ScrollWordReveal
                   text="“Marriage is a home being built — and every prayer, every kind thought, every gesture from loved ones like you becomes part of its foundation. If your heart leads you to bless ours, we receive it with quiet, overflowing gratitude.”"
@@ -663,10 +663,10 @@ export default function App() {
                     transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                     className="mt-10 rounded-2xl border border-clay/35 bg-card p-8 text-left shadow-[0_20px_50px_-25px_rgba(58,27,22,0.16)]"
                   >
-                    <p className="text-center font-display text-2xl italic text-cocoa">
+                    <p className="v3-h3 text-center text-cocoa italic">
                       Thank you, {revealedRecipient}.
                     </p>
-                    <p className="mt-1 text-center text-sm text-cocoa/75">
+                    <p className="mt-1 text-center font-body text-[15px] text-cocoa/75">
                       Please use the bank details below to complete your transfer.
                     </p>
                     <div className="my-6 gold-rule"></div>
@@ -681,14 +681,14 @@ export default function App() {
                           className="flex items-center justify-between gap-4 rounded-lg border border-clay/20 bg-cream/50 px-4 py-3 transition-colors hover:border-clay/40"
                         >
                           <div>
-                            <dt className="font-smallcaps text-[0.65rem] text-clay">{item.label}</dt>
-                            <dd className="mt-1 font-sans text-lg font-medium text-cocoa">{item.value}</dd>
+                            <dt className="v3-eyebrow text-[10.5px] text-clay">{item.label}</dt>
+                            <dd className="mt-1 font-body text-[17px] font-semibold text-cocoa">{item.value}</dd>
                           </div>
                           <CopyButton value={item.value} label={item.label} />
                         </motion.div>
                       ))}
                     </dl>
-                    <p className="mt-6 text-center text-xs italic text-cocoa/60">
+                    <p className="mt-6 text-center font-body text-xs italic text-cocoa/60">
                       Your gift is received with deep gratitude and appreciation. God bless you.
                     </p>
                   </motion.div>
@@ -708,7 +708,7 @@ export default function App() {
                         placeholder="Your full name"
                         inputMode="text"
                         autoComplete="name"
-                        className="field-input"
+                        className="field-input font-body text-[15px]"
                         value={giftForm.fullName}
                         onChange={(e) => {
                           setGiftForm((prev) => ({ ...prev, fullName: e.target.value }));
@@ -723,7 +723,7 @@ export default function App() {
                         placeholder="e.g. +234 803 000 0000"
                         inputMode="tel"
                         autoComplete="tel"
-                        className="field-input"
+                        className="field-input font-body text-[15px]"
                         value={giftForm.phone}
                         onChange={(e) => {
                           setGiftForm((prev) => ({ ...prev, phone: e.target.value }));
@@ -737,7 +737,7 @@ export default function App() {
                       disabled={giftSubmitting}
                       whileHover={{ scale: 1.02, y: -1 }}
                       whileTap={{ scale: 0.98 }}
-                      className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-burgundy px-7 py-3 text-sm uppercase tracking-[0.25em] text-cream shadow-md transition-all hover:bg-burgundy/90 disabled:opacity-60 cursor-pointer"
+                      className="v3-btn inline-flex w-full items-center justify-center gap-2 rounded-full bg-burgundy px-7 py-3.5 text-cream shadow-md transition-all hover:bg-burgundy/90 disabled:opacity-60 cursor-pointer"
                     >
                       {giftSubmitting ? (
                         <HugeiconsIcon icon={Loading03Icon} size={16} className="animate-spin text-cream" />
@@ -760,10 +760,10 @@ export default function App() {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6 }}
             >
-              <p className="font-smallcaps text-xs text-clay">Kindly Respond</p>
-              <h2 className="mt-3 font-display text-4xl text-cocoa md:text-5xl">Will you join us?</h2>
+              <p className="v3-eyebrow text-clay">Kindly Respond</p>
+              <h2 className="v3-h2-xl mt-3 text-cocoa">Will you join us?</h2>
               <div className="gold-rule mx-auto my-6 max-w-[120px]"></div>
-              <p className="text-cocoa/80">
+              <p className="font-body text-[16px] leading-relaxed text-cocoa/80">
                 Your presence would mean the world to us. Please let us know by sending in your details below.
               </p>
             </motion.div>
@@ -786,8 +786,8 @@ export default function App() {
                   >
                     <HugeiconsIcon icon={CheckmarkCircle01Icon} size={20} className="text-burgundy" />
                   </motion.div>
-                  <p className="font-display text-2xl text-cocoa">Thank you, dear one.</p>
-                  <p className="mt-2 text-sm text-cocoa/80">
+                  <p className="v3-h3 text-cocoa">Thank you, dear one.</p>
+                  <p className="mt-2 font-body text-[15px] text-cocoa/80">
                     Your response has been received with so much joy. We can’t wait to celebrate with you.
                   </p>
                   <motion.button
@@ -804,7 +804,7 @@ export default function App() {
                         message: '',
                       });
                     }}
-                    className="mt-5 text-xs uppercase tracking-[0.25em] text-clay hover:text-burgundy hover:underline cursor-pointer"
+                    className="v3-nav mt-5 text-clay hover:text-burgundy hover:underline cursor-pointer"
                   >
                     Submit another response
                   </motion.button>
@@ -825,7 +825,7 @@ export default function App() {
                       placeholder="Your full name"
                       inputMode="text"
                       autoComplete="name"
-                      className="field-input"
+                      className="field-input font-body text-[15px]"
                       value={rsvpForm.fullName}
                       onChange={(e) => {
                         setRsvpForm((prev) => ({ ...prev, fullName: e.target.value }));
@@ -840,7 +840,7 @@ export default function App() {
                       placeholder="e.g. +234 803 000 0000"
                       inputMode="tel"
                       autoComplete="tel"
-                      className="field-input"
+                      className="field-input font-body text-[15px]"
                       value={rsvpForm.phone}
                       onChange={(e) => {
                         setRsvpForm((prev) => ({ ...prev, phone: e.target.value }));
@@ -852,7 +852,7 @@ export default function App() {
                   <FormField label="Will you be attending?">
                     <select
                       name="attending"
-                      className="field-input"
+                      className="field-input font-body text-[15px]"
                       value={rsvpForm.attending}
                       onChange={(e) => setRsvpForm((prev) => ({ ...prev, attending: e.target.value }))}
                     >
@@ -865,7 +865,7 @@ export default function App() {
                   <FormField label="Number of guests">
                     <select
                       name="guests"
-                      className="field-input"
+                      className="field-input font-body text-[15px]"
                       value={rsvpForm.guests}
                       onChange={(e) => setRsvpForm((prev) => ({ ...prev, guests: e.target.value }))}
                     >
@@ -882,7 +882,7 @@ export default function App() {
                       name="message"
                       rows={3}
                       placeholder="Anything you'd like us to know"
-                      className="field-input"
+                      className="field-input font-body text-[15px]"
                       value={rsvpForm.message}
                       onChange={(e) => setRsvpForm((prev) => ({ ...prev, message: e.target.value }))}
                     />
@@ -893,7 +893,7 @@ export default function App() {
                     disabled={rsvpSubmitting}
                     whileHover={{ scale: 1.02, y: -1 }}
                     whileTap={{ scale: 0.98 }}
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-burgundy px-7 py-3 text-sm uppercase tracking-[0.25em] text-cream shadow-md transition-all hover:bg-burgundy/90 disabled:opacity-60 cursor-pointer"
+                    className="v3-btn inline-flex w-full items-center justify-center gap-2 rounded-full bg-burgundy px-7 py-3.5 text-cream shadow-md transition-all hover:bg-burgundy/90 disabled:opacity-60 cursor-pointer"
                   >
                     {rsvpSubmitting ? (
                       <HugeiconsIcon icon={Loading03Icon} size={16} className="animate-spin text-cream" />
@@ -923,12 +923,12 @@ export default function App() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="gold-rule mx-auto mb-8 max-w-xs origin-center"
           ></motion.div>
-          <p className="font-display text-2xl text-cocoa">With all our love,</p>
-          <p className="mt-2 font-script text-5xl text-burgundy drop-shadow-[0_2px_8px_rgba(123,45,49,0.18)]">
+          <p className="v3-invite text-cocoa text-xl">With all our love,</p>
+          <p className="v3-names mt-3 text-[42px] md:text-[54px] text-burgundy drop-shadow-[0_2px_8px_rgba(123,45,49,0.18)]">
             Chibuikem &amp; Chizoba
           </p>
-          <p className="mt-6 text-xs uppercase tracking-[0.3em] text-clay">#CC2026</p>
-          <p className="mt-3 text-xs text-cocoa/60">
+          <p className="v3-eyebrow mt-6 text-clay">#CC2026</p>
+          <p className="mt-3 font-body text-xs text-cocoa/60">
             © {new Date().getFullYear()} Chibuikem &amp; Chizoba.
           </p>
         </div>

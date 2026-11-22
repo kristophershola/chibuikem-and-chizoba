@@ -87,3 +87,108 @@
   border-color: var(--burgundy) !important;
   box-shadow: 0 0 0 3px rgba(123, 45, 49, 0.18) !important;
 }
+
+/* Vowthread 1:1 Typography Scale */
+:root {
+  --font-body: "Mulish", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-names: "Pinyon Script", cursive, Georgia, serif;
+  --font-script: "Pinyon Script", cursive, Georgia, serif;
+  --font-sans: "Mulish", ui-sans-serif, system-ui, sans-serif;
+}
+
+body, .v3-site {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-script, .v3-names {
+  font-family: var(--font-names) !important;
+  font-weight: 400;
+  letter-spacing: 0em;
+  line-height: 0.96;
+  text-wrap: balance;
+}
+
+.v3-amp {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: max(0.5em, 24px);
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.v3-eyebrow {
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+.v3-invite {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.v3-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.15rem, 8vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.v3-h2-xl {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 11vw, 5.25rem);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: normal;
+  text-wrap: balance;
+}
+
+.v3-h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.625rem, 4vw, 1.875rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: normal;
+}
+
+.v3-btn {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+.v3-nav {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
