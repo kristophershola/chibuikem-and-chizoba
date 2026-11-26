@@ -212,10 +212,10 @@ function CelebrationCard() {
       >
         <div className="px-7 py-8 text-center">
           <p className="v3-eyebrow text-clay">Traditional Marriage</p>
-          <h3 className="v3-h3 mt-3 text-cocoa">Signatious Hotel</h3>
+          <h3 className="v3-h3 mt-3 text-cocoa">De Santos Hotel</h3>
           <p className="mt-3 inline-flex items-center gap-2 font-body text-[15px] text-cocoa/80">
-            <HugeiconsIcon icon={Location01Icon} size={14} className="text-clay" />
-            Ajau Estate, Lagos
+            <HugeiconsIcon icon={Location01Icon} size={14} className="shrink-0 text-clay" />
+            7 Shasha Road Akowonjo Roundabout, Off Dopemu Overhead Bridge
           </p>
           <p className="mt-1 inline-flex items-center gap-2 font-body text-[15px] text-cocoa/80">
             <HugeiconsIcon icon={Time01Icon} size={14} className="text-clay" />
@@ -224,8 +224,8 @@ function CelebrationCard() {
         </div>
         <div className="aspect-[16/10] w-full overflow-hidden border-t border-clay/20">
           <iframe
-            src="https://www.google.com/maps?q=Signatious+Hotel+Ajau+Estate+Lagos&output=embed"
-            title="Map for Signatious Hotel"
+            src="https://www.google.com/maps?q=De+Santos+Hotel+7+Shasha+Road+Akowonjo+Roundabout+Off+Dopemu+Overhead+Bridge&output=embed"
+            title="Map for De Santos Hotel"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             className="h-full w-full border-0"
@@ -233,7 +233,7 @@ function CelebrationCard() {
         </div>
         <div className="border-t border-clay/20 bg-cream/60 px-7 py-4 text-center flex flex-wrap items-center justify-center gap-3">
           <a
-            href="https://www.google.com/maps/search/?api=1&query=Signatious+Hotel+Ajau+Estate+Lagos"
+            href="https://www.google.com/maps/search/?api=1&query=De+Santos+Hotel+7+Shasha+Road+Akowonjo+Roundabout+Off+Dopemu+Overhead+Bridge"
             target="_blank"
             rel="noreferrer"
             className="v3-btn-secondary"
@@ -241,7 +241,7 @@ function CelebrationCard() {
             Directions <HugeiconsIcon icon={LinkSquare01Icon} size={14} />
           </a>
           <a
-            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Chibuikem+%26+Chizoba+Traditional+Marriage&dates=20261219T113000Z/20261219T180000Z&details=Celebrating+the+traditional+marriage+of+Chibuikem+and+Chizoba&location=Signatious+Hotel,+Ajau+Estate,+Lagos"
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Chibuikem+%26+Chizoba+Traditional+Marriage&dates=20261219T113000Z/20261219T180000Z&details=Celebrating+the+traditional+marriage+of+Chibuikem+and+Chizoba&location=De+Santos+Hotel,+7+Shasha+Road+Akowonjo+Roundabout,+Off+Dopemu+Overhead+Bridge"
             target="_blank"
             rel="noreferrer"
             className="v3-btn-secondary"
